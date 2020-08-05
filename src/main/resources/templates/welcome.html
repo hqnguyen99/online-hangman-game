@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+        <title>CMPT 213 Online Hangman Game</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <h1>Welcome to Online Hangman Game</h1>
+        <h2 th:text="'Created by ' + ${name}"></h2>
+        <form th:action="@{/game}" method="post">
+            <input type="button" value="Create New Game" class="btn btn-red"/>
+        </form>
+    </body>
+</html>
