@@ -5,6 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h2 >Created by</h2>
+<h1 th:text = "'Game ID: ' + ${id}"></h1>
+<h2 th:text = "'Status: ' + ${status}"></h2>
+<h3 th:text = "'Guesses has been made: ' + ${guesses}"></h3>
+<h4 th:text = "'Incorrect guesses: ' + ${incorrectGuesses}"></h4>
+<h5 th:text = "'Word: ' + ${hiddenWord}"></h5>
+
+<form th:action="@{/welcome}" method="get">
+    <input type="submit" value="Back to Home Page" class="btn btn-red"/>
+</form>
+<form th:action = "@{/game/} + ${id}" th:field="${textareaField}" method="post">
+    <input pattern="[a-zA-Z]" type="text" id="guess" name="guess" th:value="*{guess}"  required/>
+    <input type="submit" value="Submit" />
+</form>
 </body>
 </html>

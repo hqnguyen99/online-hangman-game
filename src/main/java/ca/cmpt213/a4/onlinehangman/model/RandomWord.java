@@ -8,18 +8,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RandomWord {
-    File file;
+    File file = new File("src/commonWords.txt");
 
-    public RandomWord(String path) {
-        this.file = new File(path);
-    }
-    public String generateRandomWord() throws FileNotFoundException {
+    public String generateRandomWord()  {
         List<String> wordList = new ArrayList<>();
-        Scanner scanner = new Scanner(file);
-        while(scanner.hasNext()){
-            wordList.add(scanner.nextLine());
+        try {
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNext()){
+                wordList.add(scanner.nextLine());
+            }
+            Collections.shuffle(wordList);
         }
-        Collections.shuffle(wordList);
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         return wordList.get(0);
     }
 }
