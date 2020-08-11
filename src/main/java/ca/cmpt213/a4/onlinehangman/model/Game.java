@@ -1,5 +1,6 @@
 package ca.cmpt213.a4.onlinehangman.model;
 
+// Handle the game
 public class Game {
     long id;
     char[] hiddenWord;

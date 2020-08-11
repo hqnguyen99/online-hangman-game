@@ -3,12 +3,22 @@
     <head lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
         <title>CMPT 213 Online Hangman Game</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css%22%3E">
+        <link href="/styles/main.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <h1>Welcome to Online Hangman Game</h1>
-        <h2 th:text="'Created by ' + ${name}"></h2>
+        <img th:src="@{/images/SFU_bg.png}" alt="bg">
+        <div class = "title">
+            <h1>Welcome to Online Hangman Game</h1>
+            <p th:text="'Created by ' + ${name}"></p>
+        </div>
+        <h3><strong>Instructions</strong></h3>
+        <p>Guess letters one at a time to solve the word puzzle.Choose the letter form your keyboard and press "Submit".
+        <br>The game is over if you have more than 7 incorrect guesses. Think carefully before submit. Good luck!!
+        </p>
         <form th:action="@{/game}" method="post">
-            <input type="submit" value="Create New Game" class="btn btn-red"/>
+            <input type="submit" class= "btn btn-success" value="Play Game" />
         </form>
     </body>
 </html>

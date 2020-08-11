@@ -3,20 +3,22 @@
 <head lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <title>CMPT 213 Online Hangman Game</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="/styles/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1 th:text = "'Game ID: ' + ${id}"></h1>
-<h2 th:text = "'Status: ' + ${status}"></h2>
-<h3 th:text = "'Guesses has been made: ' + ${guesses}"></h3>
-<h4 th:text = "'Incorrect guesses: ' + ${incorrectGuesses}"></h4>
-<h5 th:text = "'Word: ' + ${hiddenWord}"></h5>
-
-<form th:action="@{/welcome}" method="get">
-    <input type="submit" value="Back to Home Page" class="btn btn-red"/>
-</form>
-<form th:action = "@{/game/} + ${id}" th:field="${textareaField}" method="post">
+<h1 th:text = "'Game ' + ${id}"></h1>
+<p th:text = "'Status: ' + ${status}"></p>
+<p th:text = "'Progress: ' + ${hiddenWord}"></p>
+<p th:text = "'You have made ' + ${guesses} + ', out of which ' + ${incorrectGuesses} + ' are incorrect'"></p>
+<form th:action = "@{/game/} + ${id}" th:field="${textareaField}" method="post" autocomplete="off">
+    <p>Enter your guess:
     <input pattern="[a-zA-Z]" type="text" id="guess" name="guess" th:value="*{guess}"  required/>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" class="btn btn-light"/>
+    </p>
+</form>
+<form th:action="@{/welcome}" method="get">
+    <input type="submit" value="Return to Homepage" class="btn btn-light"/>
 </form>
 </body>
 </html>

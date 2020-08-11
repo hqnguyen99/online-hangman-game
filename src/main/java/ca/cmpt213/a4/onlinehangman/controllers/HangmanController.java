@@ -4,6 +4,7 @@ import ca.cmpt213.a4.onlinehangman.model.Game;
 import ca.cmpt213.a4.onlinehangman.model.GameStatus;
 import ca.cmpt213.a4.onlinehangman.model.RESTGameNotFoundException;
 import ca.cmpt213.a4.onlinehangman.model.RandomWord;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -72,7 +73,7 @@ public class HangmanController {
             model.addAttribute("word", chosenGame.getWord());
             model.addAttribute("guesses", chosenGame.getNumberOfGuesses());
             model.addAttribute("incorrectGuesses", chosenGame.getNumberOfIncorrectGuesses());
-            if(chosenGame.getNumberOfIncorrectGuesses() >= MAX_INCORRECT_GUESSES){
+            if(chosenGame.getNumberOfIncorrectGuesses() > MAX_INCORRECT_GUESSES){
                 chosenGame.setStatus(GameStatus.Lost);
                 return "gameover";
             }

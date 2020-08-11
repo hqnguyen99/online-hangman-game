@@ -6,6 +6,7 @@ import ca.cmpt213.a4.onlinehangman.model.RandomWord;
 import java.io.FileNotFoundException;
 import java.util.concurrent.atomic.AtomicLong;
 
+// Test to run on IntelliJ terminal
 public class Main {
     public static void main (String[] args) {
         AtomicLong id = new AtomicLong(0);

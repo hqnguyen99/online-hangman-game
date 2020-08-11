@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+// Generate random word from text file
 public class RandomWord {
     File file = new File("src/commonWords.txt");
 
